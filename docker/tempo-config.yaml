@@ -10,10 +10,18 @@ distributor:
           endpoint: "localhost:4417"
         http:
           endpoint: "localhost:4418"
+compactor:
+  compaction:
+    block_retention: 2160h # 90 days
+    compaction_window: 1h
+    compacted_block_retention: 10m
 
 storage:
   trace:
-    backend: local
+    backend: gcs
+    gcs:
+      bucket_name: wattle-prod-telemetry
+      prefix: tempo
     wal:
       path: /data/tempo/wal
     local:
