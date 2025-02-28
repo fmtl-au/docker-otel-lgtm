@@ -2,6 +2,7 @@ services:
   grafana-otel:
     image: grafana/otel-lgtm:latest
     container_name: grafana-otel
+    network_mode: "host"
     restart: always
     environment:
       GF_AUTH_ANONYMOUS_ENABLED: "false"
@@ -9,8 +10,8 @@ services:
       - "3000:3000"
       - "4317-4318:4317-4318"
     volumes:
-      - ./grafana/plugins:/data/grafana/plugins
-      - ./grafana/run-grafana.sh:/otel-lgtm/run-grafana.sh
+#      - ./grafana/plugins:/data/grafana/plugins
+#      - ./grafana/run-grafana.sh:/otel-lgtm/run-grafana.sh
       - grafana_data:/data
 
 volumes:
