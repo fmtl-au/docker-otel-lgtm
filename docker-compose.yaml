@@ -12,3 +12,6 @@ services:
       - ./grafana/plugins:/data/grafana/plugins
       - ./grafana/run-grafana.sh:/otel-lgtm/run-grafana.sh
       - grafana_data:/data
+
+volumes:
+  grafana_data:
